@@ -1,8 +1,5 @@
 package web.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
     private String madeIn;
     private String model;
@@ -37,6 +34,7 @@ public class Car {
     public void setYear(int year) {
         this.year = year;
     }
+
     @Override
     public String toString() {
         return madeIn + "\t" + model + "\t" + year;
