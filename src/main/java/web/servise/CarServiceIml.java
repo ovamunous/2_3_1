@@ -1,12 +1,14 @@
 package web.servise;
 
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarServiceIml {
-    ArrayList<Car> cars = new ArrayList<>() {
+@Service
+public class CarServiceIml implements CarService {
+    private ArrayList<Car> cars = new ArrayList<>() {
         {
             add(new Car("China", "Xiomi", 2024));
             add(new Car("Russia", "Lada", 1999));
@@ -16,16 +18,12 @@ public class CarServiceIml {
         }
     };
 
+    @Override
     public List<Car> getCars(int count) {
         if (count < 5 && count > 0) {
             return new ArrayList<>(cars).subList(0, count);
         }
         return cars;
     }
-
-    public List<Car> getCars() {
-        return cars;
-    }
-
 
 }
