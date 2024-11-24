@@ -7,9 +7,30 @@
 </head>
 <body>
 <div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
+    <th:block th:each="user : ${users}">
+        <h1 th:text="${user}"></h1>
     </th:block>
+</div>
+<div>
+    <form th:action="@{/addUser}" method="post">
+        <input type="text" id="input1" name="addString" placeholder="username, password, email " required />
+        <button type="submit">add</button>
+    </form>
+</div>
+
+<div>
+    <form th:action="@{/deleteUser}" method="post">
+        <input type="text" id="input2" name="id" placeholder="delete by id" required />
+        <button type="submit">delete by id</button>
+    </form>
+</div>
+
+<div>
+    <form th:action="@{/updateUser}" method="post">
+        <input type="text" id="input3" name="updateString"
+               placeholder="id, newUsername, newPassword, newEmail" required />
+        <button type="submit">remade by id</button>
+    </form>
 </div>
 </body>
 </html>
